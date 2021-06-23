@@ -2,9 +2,20 @@
 
 function updateSubtotal(product) {
   console.log('Calculating subtotal, yey!');
+  
+  const inputQuantity = product.querySelector('.quantity');
+  const inputPrice = product.querySelector('.price span');
+  const calculateButton = product.getElementById('calculate');
+  const subTotalChanges = product.querySelector('.subtotal span');
 
-  //... your code goes here
+  calculateButton.addEventListener ('click', (event) => {
+    const inputValue = inputQuantity.value * inputPrice.value;
+    subTotalChanges.innerHTML = `<span>${inputValue}</span>`;
+  })
 }
+
+  // when we click 'calculate prices' the unit price * quantity = subtotal changes
+
 
 function calculateAll() {
   // code in the following two lines is added just for testing purposes.
