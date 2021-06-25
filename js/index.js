@@ -65,13 +65,13 @@ function removeProduct(event) {
   console.log('The target in remove is:', target);
 
 
-  const listElement = document.getElementsByTagName('tbody')
-  const thisProduct = document.getElementsByClassName('product')
-  const removeButton = document.getElementsByClassName('btn btn-remove')
+  const listElement = document.querySelectorAll('tr')
+  const thisProduct = document.querySelectorAll('.product')
+  const removeButton = document.querySelectorAll('.btn btn-remove')
   
   removeButton.forEach((button) => {
     button.addEventListener('click', () => {
-      listElement.removeChild(thisProduct);
+      listElement.removeChild();
     })
   })
 
@@ -80,7 +80,21 @@ function removeProduct(event) {
 // ITERATION 5
 
 function createProduct() {
-  //... your code goes here
+
+  const newRow = document.querySelectorAll('.create-product')
+  const createButton = document.querySelectorAll('#create btn')
+
+  
+
+  createButton.addEventListener ('click', (event) => {
+
+    const productName = document.createElement('productName')
+    const productPrice = document.createElement('productPrice')
+    const newButton = document.createElement('newButton')
+    productName.innerHTML = <input type="text" placeholder="Product Name" />;
+    productPrice.innerHTML = <input type="number" min="0" value="0" placeholder="Product Price" />;
+    newButton.innerHTML = <button id="create" class="btn">Create Product</button>;
+  })
 }
 
 window.addEventListener('load', () => {
